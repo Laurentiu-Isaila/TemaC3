@@ -86,6 +86,31 @@ public class Exercitii {
 		  return nrVal;
 		}
 	
+	//ex 4
+	
+	public static String[] selectiveFilter(String[] words, String key, int mKey) {
+		  String[] filteredWords = new String[words.length];
+		  int size = 0;
+		  key = key.toLowerCase();
+		 
+		  for (int i=0; i<words.length; i++) {
+		    String crtWord = words[i].toLowerCase();
+		    int minLength = Math.min(crtWord.length(), key.length());
+		    int countMatches = 0;
+		    for (int j=0; j<minLength; j++) {
+		      if (crtWord.charAt(j) == key.charAt(j)) {
+		        countMatches++;
+		      }
+		    }
+		    if (countMatches >= mKey) {
+		      filteredWords[size] = words[i]; 
+		      size++;
+		    }
+		  }		 
+		  
+		  return Arrays.copyOf(filteredWords, size);
+		}
+	
 	
 	
 	
